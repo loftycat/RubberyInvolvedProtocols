@@ -1,21 +1,27 @@
-import random
+import time
+
+def display_ring_toss():
+    ring_toss = [
+        "   __/ \\__ ",
+        "  /       \\",
+        " |         |",
+        "  \\       /",
+        "   \\__/_/"
+    ]
+    
+    for line in ring_toss:
+        print(line)
+        time.sleep(0.3)
 
 def main():
-    print("数当てゲームを始めます！")
-    target_number = random.randint(1, 100)
-    attempts = 0
-
+    print("輪投げゲームを始めます！")
+    
     while True:
-        guess = int(input("1から100までの整数を入力してください: "))
-        attempts += 1
-
-        if guess < target_number:
-            print("もっと大きい数です。")
-        elif guess > target_number:
-            print("もっと小さい数です。")
-        else:
-            print(f"おめでとう！{target_number}を当てました！")
-            print(f"試行回数: {attempts}")
+        display_ring_toss()
+        
+        play_again = input("もう一度プレイしますか？（y/n）: ")
+        if play_again.lower() != "y":
+            print("ゲームを終了します。お疲れ様でした！")
             break
 
 if __name__ == "__main__":
